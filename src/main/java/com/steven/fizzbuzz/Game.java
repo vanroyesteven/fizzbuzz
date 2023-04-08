@@ -4,11 +4,11 @@ public class Game {
 
 
     public String getOutput(int number) {
-        if (number % 3 == 0 && number % 5 == 0) {
+        if (isMultipleOfThreeAndFive(number)) {
             return "FizzBuzz";
-        } else if (number % 3 == 0) {
+        } else if (isMultipleOfThree(number)) {
             return "Fizz";
-        } else if (number % 5 == 0) {
+        } else if (isMultipleOfFive(number)) {
             return "Buzz";
         }
         return String.valueOf(number);
@@ -20,5 +20,17 @@ public class Game {
             output[i] = getOutput(i + 1);
         }
         return output;
+    }
+
+    private static boolean isMultipleOfThreeAndFive(int number) {
+        return number % 3 == 0 && number % 5 == 0;
+    }
+
+    private static boolean isMultipleOfThree(int number) {
+        return number % 3 == 0;
+    }
+
+    private static boolean isMultipleOfFive(int number) {
+        return number % 5 == 0;
     }
 }
